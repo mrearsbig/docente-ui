@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { DocenteService } from '../../servicios/docente.service';
 import { Docente } from '../../interfaces/docente';
 
@@ -17,6 +17,8 @@ import { Docente } from '../../interfaces/docente';
   styleUrl: './formulario-docente.component.css',
 })
 export class FormularioDocenteComponent {
+  private id: number = 0;
+
   formularioDocente = new FormGroup({
     id: new FormControl(0, [
       Validators.required,
@@ -38,8 +40,16 @@ export class FormularioDocenteComponent {
 
   constructor(
     private docenteServicio: DocenteService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
+
+  ngOnInit() {
+    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.docenteServicio
+      .leerDocente(this.id)
+      .subscribe((response) => this.formularioDocente.patchValue(response));
+  }
 
   guardarDocente() {
     const docente: Docente = {
@@ -59,8 +69,15 @@ export class FormularioDocenteComponent {
       ),
     };
 
-    this.docenteServicio
-      .crearDocente(docente)
-      .subscribe(() => this.router.navigate(['/docentes']));
+    if (this.id) {
+      this.docenteServicio.actualizarDocente(this.id, docente).subscribe(() => {
+        alert('Docente Actualizado');
+        this.router.navigate(['/docentes']);
+      });
+    } else {
+      this.docenteServicio
+        .crearDocente(docente)
+        .subscribe(() => this.router.navigate(['/docentes']));
+    }
   }
 }
