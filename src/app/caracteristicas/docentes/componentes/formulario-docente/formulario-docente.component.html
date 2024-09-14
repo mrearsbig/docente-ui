@@ -1,0 +1,173 @@
+<!-- Contenedor principal -->
+<div
+  class="max-w-7xl mx-auto my-6 bg-white p-8 shadow-md rounded-lg border border-inherit"
+>
+  <!-- Encabezado -->
+  <h1 class="text-center text-2xl font-bold text-pink-500 mb-8">
+    CREACIÓN DE DOCENTE
+  </h1>
+
+  <!-- Formulario -->
+  <form
+    [formGroup]="formularioDocente"
+    (ngSubmit)="guardarDocente()"
+    class="grid grid-cols-4 gap-6"
+  >
+    <!-- Tipo Identificación -->
+    <div>
+      <label for="tipo-identificacion" class="block text-gray-700 mb-2"
+        >Tipo Identificación</label
+      >
+      <select
+        formControlName="tipoIdentificacion"
+        id="tipo-identificacion"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+      >
+        <option value="0">Cédula de Ciudadanía</option>
+        <option value="1">Cédula de Extranjería</option>
+      </select>
+    </div>
+
+    <!-- Identificación -->
+    <div>
+      <label for="identificacion" class="block text-gray-700 mb-2"
+        >Identificación</label
+      >
+      <input
+        type="text"
+        formControlName="id"
+        id="identificacion"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Identificación"
+      />
+    </div>
+
+    <!-- Nombres -->
+    <div>
+      <label for="nombres" class="block text-gray-700 mb-2">Nombres</label>
+      <input
+        type="text"
+        formControlName="nombre"
+        id="nombres"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Nombres"
+      />
+    </div>
+
+    <!-- Apellidos -->
+    <div>
+      <label for="apellidos" class="block text-gray-700 mb-2">Apellidos</label>
+      <input
+        type="text"
+        formControlName="apellido"
+        id="apellidos"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Apellidos"
+      />
+    </div>
+
+    <!-- Correo Electrónico -->
+    <div>
+      <label for="correo" class="block text-gray-700 mb-2"
+        >Correo Electrónico</label
+      >
+      <input
+        type="email"
+        formControlName="email"
+        id="correo"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Correo Electrónico"
+      />
+    </div>
+
+    <!-- Teléfono Celular -->
+    <div>
+      <label for="telefono" class="block text-gray-700 mb-2"
+        >Teléfono Celular</label
+      >
+      <input
+        type="tel"
+        formControlName="telefono"
+        id="telefono"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Teléfono Celular"
+      />
+    </div>
+
+    <!-- Número Contrato -->
+    <div>
+      <label for="numero-contrato" class="block text-gray-700 mb-2"
+        >Número Contrato</label
+      >
+      <input
+        type="text"
+        formControlName="contrato"
+        id="numero-contrato"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Número Contrato"
+      />
+    </div>
+
+    <!-- Ciudad Residencia -->
+    <div>
+      <label for="ciudad" class="block text-gray-700 mb-2"
+        >Ciudad Residencia</label
+      >
+      <input
+        type="text"
+        formControlName="ciudad"
+        id="ciudad"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+        placeholder="Ciudad Residencia"
+      />
+    </div>
+
+    <!-- Escalafón Técnico -->
+    <div class="col-span-2">
+      <label for="escalafon-tecnico" class="block text-gray-700 mb-2"
+        >Escalafón Técnico</label
+      >
+      <select
+        formControlName="escalafonTecnico"
+        id="escalafon-tecnico"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+      >
+        <option value="0">Técnico</option>
+        <option value="1">Tecnólogo</option>
+        <option value="2">Profesional</option>
+      </select>
+    </div>
+
+    <!-- Escalafón Extensión -->
+    <div class="col-span-2">
+      <label for="escalafon-extension" class="block text-gray-700 mb-2"
+        >Escalafón Extensión</label
+      >
+      <select
+        formControlName="escalafonExtension"
+        id="escalafon-extension"
+        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+      >
+        <option value="0">Técnico experiencia inferior 1 año</option>
+        <option value="1">Técnico experiencia superior 1 año</option>
+        <option value="2">Tecnólogo</option>
+        <option value="3">Profesional</option>
+      </select>
+    </div>
+
+    <!-- Botones -->
+    <button
+      type="button"
+      routerLink="/docentes"
+      class="bg-blue-500 col-span-2 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg mt-6"
+    >
+      ATRÁS
+    </button>
+    <button
+      type="submit"
+      class="bg-blue-500 col-span-2 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg mt-6"
+    >
+      GUARDAR
+    </button>
+  </form>
+</div>
