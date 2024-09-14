@@ -10,9 +10,9 @@ export class EscalafonTecnicoPipe implements PipeTransform {
   transform(escalafonTecnico: EscalafonTecnico): string {
     switch (escalafonTecnico) {
       case EscalafonTecnico.Tecnico:
-        return 'Tecnico';
+        return 'Técnico';
       case EscalafonTecnico.Tecnologo:
-        return 'Tecnologo';
+        return 'Tecnólogo';
       case EscalafonTecnico.Profesional:
         return 'Profesional';
     }
