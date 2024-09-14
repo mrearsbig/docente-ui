@@ -21,4 +21,12 @@ export class ListaDocenteComponent {
       .leerDocentes()
       .subscribe((response) => (this.docentes = response));
   }
+
+  borrarDocente(id: number) {
+    this.docenteServicio.borrarDocente(id).subscribe(() => {
+      console.log(id);
+      alert('Docente Eliminado');
+      this.ngOnInit();
+    });
+  }
 }
